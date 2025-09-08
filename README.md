@@ -1,9 +1,15 @@
-## **Objetivo**
-Criar uma aplicação Laravel para gerenciar usuários e seus perfis, onde cada usuário pode ter múltiplos perfis. O objetivo é avaliar suas habilidades em PHP, Laravel, e boas práticas de desenvolvimento.
+## **Objetivos**
+1. **Criar** uma aplicação Laravel de backend para gerenciar usuários e seus perfis, onde cada usuário pode ter múltiplos perfis. O objetivo é avaliar suas habilidades em PHP, Laravel, e boas práticas de desenvolvimento.
+
+2. **Criar** uma segunda aplicação VUE (2 ou 3) que irá consumir os dados da primeira aplicação. 
+
+3. **Criar** docker-compose para subir o banco de dados e as aplicações (backend e frontend);
+
+**Resumo:** Após o término do projeto. Deveremos rodar o Docker-compose build e poderemos avaliar o resultado da sua aplicação.
 
 ---
 
-## **Requisitos**
+## **Requisitos de Negócio**
 
 1. **Autenticação de Usuário**:
     - Implementar um sistema de autenticação que permita o registro, login e logout de usuários.
@@ -40,8 +46,8 @@ Criar uma aplicação Laravel para gerenciar usuários e seus perfis, onde cada 
     - Apenas usuários autenticados podem acessar o sistema.
     - Apenas usuários com o perfil "Administrador" podem gerenciar perfis e associações.
 
-## **Requisitos PLUS (não obrigatório)**
-- Implementar a funcionalidade de desassociar perfis de forma assíncrona, ou seja, implementar uma mensageria com kafka usando o conceito de producer/consumer de mensagens
+## **Requisitos Diferenciais**
+- Implementar a funcionalidade de desassociar perfis de forma assíncrona, ou seja, implementar uma mensageria com kafka ou RabbitMQ usando o conceito de producer/consumer de mensagens.
 
 ---
 
@@ -49,8 +55,6 @@ Criar uma aplicação Laravel para gerenciar usuários e seus perfis, onde cada 
 
 1. **Repositório**:
     - Fazer um fork deste repositório.
-
-
 
 2. **README-novo do Projeto**:
     - Crie um novo Readme "Readme-novo.md"
@@ -60,16 +64,12 @@ Criar uma aplicação Laravel para gerenciar usuários e seus perfis, onde cada 
         - Como rodar as migrations e seeders.
         - Usuário e senha de teste para login.
 
-
-4. **Pontos de Verificação**:
+3. **Pontos de Verificação**:
     - O sistema deve atender a todos os requisitos mencionados.
-    - Deve obdecer a arquitetura MVC
 
-
-5. **Entrega PLUS (não obrigatório)**
+4. **Entrega Plus**
     - Utilizar arquitetura DDD
     - Utilizar TDD
-    - Entregar o projeto funcionando com Docker
     - Utilizar Swagger
 
 ---
@@ -90,11 +90,11 @@ Criar uma aplicação Laravel para gerenciar usuários e seus perfis, onde cada 
 ## **Configuração do Projeto**
 
 ### **Requisitos**
-- PHP >= 8.0
+- PHP >= 8.2
 - Composer
 - Banco de dados relacional (MySQL, Sqlite, PostgreSQL ou outro compatível com Laravel)
-- Laravel >= 10.x
-- Frontend - Livre escolha
+- Laravel >= 12.x
+- Frontend usando VUE (2 ou 3)
 
 ---
 
