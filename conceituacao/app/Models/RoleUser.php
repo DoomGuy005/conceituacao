@@ -11,6 +11,8 @@ class RoleUser extends Model {
 
     use SoftDeletes;
 
+    protected $table = "roles_users";
+
     protected $fillable = ["role_id", "user_id"];
 
     public function users() {
