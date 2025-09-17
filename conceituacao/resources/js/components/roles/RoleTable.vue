@@ -1,12 +1,14 @@
 <script setup lang="ts">
 
 import { Link } from '@inertiajs/vue3';
-import { show, destroy } from '@/routes/roles';
+import { show } from '@/routes/roles';
+import { destroy } from '@/actions/App/Http/Controllers/Roles/RoleController';
 import { Role } from '@/types/roles/Role';
 import { convertDateToBrFormat } from '@/lib/utils';
 import Table from '../ui/table/Table.vue';
 import TableCell from '../ui/table/TableCell.vue';
 import TableHeader from '../ui/table/TableHeader.vue';
+import Button from '../ui/button/Button.vue';
 
 const props = defineProps({
     roles: Array<Role>,
@@ -44,12 +46,12 @@ const headers = [
                     {{ convertDateToBrFormat(role.updated_at) }}
                 </TableCell>
                 <TableCell>
-                    <Link :href="show(role.id)">
+                    <Link :href="show(role.id)" :as="Button">
                         Editar
                     </Link>
                 </TableCell>
                 <TableCell>
-                    <Link :href="destroy(role.id)" :method="delete">
+                    <Link :href="destroy.form(role.id).action" method="delete">
                         Apagar
                     </Link>
                 </TableCell>

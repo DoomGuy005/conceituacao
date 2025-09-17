@@ -1,9 +1,7 @@
 <script setup lang="ts">
 
-import RoleController from '@/actions/App/Http/Controllers/Roles/RoleController';
-import RoleCard from '@/components/roles/RoleCard.vue';
+import { update } from '@/actions/App/Http/Controllers/Roles/RoleController';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { show } from '@/routes/roles';
 import { type BreadcrumbItem } from '@/types';
 import { Form, Head } from '@inertiajs/vue3';
 import Input from '@/components/ui/input/Input.vue';
@@ -29,8 +27,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex- gap-4 overflow-x-auto rounded-xl p-4">
             <Form
-                v-bind="RoleController.update.form(role.id)"
-                :reset-on-success="['password']"
+                v-bind="update(role.id)"
                 v-slot="{ errors, processing }"
                 class="flex flex-col w-100 gap-6"
             >

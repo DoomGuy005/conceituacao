@@ -38,7 +38,7 @@ abstract class AbstractRepository {
         return $model->update($data);
     }
 
-    public function delete(Model $model, array $data) {
+    public function delete(Model $model) {
         if (!$model instanceof $this->modelClass)
             throw new Exception("Model inválido para este repository");
         

@@ -32,7 +32,7 @@ class SomenteAdmins
 
         if (!count($userRoles)) {
             return redirect()
-                ->route('roles.list')
+                ->route('dashboard')
                 ->with(StatusResponse::error("Operação não permitida"));
         }
 

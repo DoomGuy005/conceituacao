@@ -21,20 +21,25 @@ class RoleController extends Controller {
     
     public function index() {
         $perfis = $this->roleRepository->all();
-        return Inertia::render('roles/Index', [
+        return Inertia::render('roles/index', [
             'roles' => $perfis
         ]);
+    }
+
+    public function create() {
+        return Inertia::render('roles/create');
     }
 
     public function store(CreateRoleRequest $request) {
         $arrDados = $request->validated();
         $novoPerfil = $this->roleRepository->create($arrDados);
-        return $this->index();
+        return to_route('roles.list')
+            ->with(StatusResponse::sucess("Perfil cadastrado com sucesso"));
     }
 
     public function show($idRole) {
         $perfil = $this->roleRepository->find((int) $idRole);
-        return Inertia::render('roles/EditRole', [
+        return Inertia::render('roles/edit', [
             'role' => $perfil
         ]);
     }
@@ -55,7 +60,7 @@ class RoleController extends Controller {
         if (empty($role))
             throw new Exception("Perfil não encontrado");
         $this->roleRepository->delete($role);
-        
+
         return to_route('roles.list')
             ->with(StatusResponse::sucess("Perfil Apagado com sucesso"));
     }
