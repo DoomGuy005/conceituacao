@@ -9,4 +9,6 @@ Route::middleware(["auth"])->group(function () {
         ->name("roles.show");
     Route::put("roles/{idRole}", [RoleController::class, "update"])
         ->name("roles.update");
+    Route::delete("roles/{idRole}", [RoleController::class, "destroy"])
+        ->name("roles.destroy");
 });
