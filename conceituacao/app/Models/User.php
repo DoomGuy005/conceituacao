@@ -51,7 +51,16 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Summary of roles
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough<Role, RoleUser, User>
+     */
     public function roles() {
-        return $this->hasManyThrough(Role::class, RoleUser::class);
+        return $this->hasManyThrough(
+            Role::class, 
+            RoleUser::class,
+            'role_id',
+            'id'
+        );
     }
 }

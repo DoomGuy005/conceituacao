@@ -8,6 +8,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Form, Head } from '@inertiajs/vue3';
 import Input from '@/components/ui/input/Input.vue';
 import InputError from '@/components/InputError.vue';
+import Button from '@/components/ui/button/Button.vue';
 
 const props = defineProps([
     'role'
@@ -64,7 +65,7 @@ const breadcrumbs: BreadcrumbItem[] = [
                         />
                         <InputError :message="errors.description" />
                     </div>
-                    <Button type="submit" class="mt-4 w-full bg-color" :tabindex="4" :disabled="processing">
+                    <Button class="mt-4 w-full" :tabindex="4" :disabled="processing">
                         <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
                         Editar Perfil
                     </Button>

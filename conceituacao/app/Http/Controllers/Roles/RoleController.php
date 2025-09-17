@@ -46,10 +46,8 @@ class RoleController extends Controller {
         $arrDados = $updateRoleRequest->validated();
         $this->roleRepository->update($perfil, $arrDados);
 
-        $listaPerfis = $this->roleRepository->all();
-        return Inertia::render('roles/Index', [
-            'roles' => $listaPerfis
-        ])->with(StatusResponse::sucess("Perfil Editado com sucesso"));
+        return to_route('roles.list')
+            ->with(StatusResponse::sucess("Perfil Editado com sucesso"));
     }
 
     public function destroy($idRole) {
@@ -57,6 +55,8 @@ class RoleController extends Controller {
         if (empty($role))
             throw new Exception("Perfil não encontrado");
         $this->roleRepository->delete($role);
-        return response(StatusResponse::sucess("Perfil apagado com sucesso"));
+        
+        return to_route('roles.list')
+            ->with(StatusResponse::sucess("Perfil Apagado com sucesso"));
     }
 }
